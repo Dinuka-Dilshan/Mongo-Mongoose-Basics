@@ -54,10 +54,17 @@ const Fruit = mongoose.model("Fruit",fruitSchema);
 //     }
 // });
 
-const fruits = Fruit.find((error,result)=>{
+/*All callbacks in Mongoose use the pattern callback(error, result).
+ If an error occurs executing the query, the error parameter will contain an error document and result will be null. 
+ If the query is successful, the error parameter will be null, and the result will be populated with the results of the query.*/
+
+ //search 
+ const fruits = Fruit.find((error,result)=>{
     if(error){
         console.log(error);
     }else{
+        //close the connection
+        mongoose.connection.close();
         result.forEach((fruit) => {
             console.log(fruit.name);
         });
