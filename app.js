@@ -30,26 +30,36 @@ const fruitSchema = new mongoose.Schema({
 //creating the model
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
-//creating objects
-const mango = new Fruit({
-    name:"mango",
-    rating:10
-});
+// //creating objects
+// const mango = new Fruit({
+//     name:"mango",
+//     rating:10
+// });
 
-const apple = new Fruit({
-    name: "apple",
-    rating: 6
-});
+// const apple = new Fruit({
+//     name: "apple",
+//     rating: 6
+// });
 
-const orange = new Fruit({
-    name:"orange",
-    rating:9
-});
+// const orange = new Fruit({
+//     name:"orange",
+//     rating:9
+// });
 
-Fruit.insertMany([mango,apple,orange],(error,result)=>{
+// Fruit.insertMany([mango,apple,orange],(error,result)=>{
+//     if(error){
+//         console.log(error);
+//     }else{
+//         console.log("Successfull!");
+//     }
+// });
+
+const fruits = Fruit.find((error,result)=>{
     if(error){
         console.log(error);
     }else{
-        console.log("Successfull!");
+        result.forEach((fruit) => {
+            console.log(fruit.name);
+        });
     }
-});
+})
