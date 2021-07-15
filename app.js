@@ -17,3 +17,6 @@ const person = new Person({
     age:22,
     address: "Lion house"
 });
+
+//save person to the database
+person.save();
