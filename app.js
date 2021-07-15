@@ -9,4 +9,11 @@ const personSchema = new mongoose.Schema({
 });
 
 //create model
-const person = mongoose.model("Person",personSchema);
+const Person = mongoose.model("Person",personSchema);
+
+//create a person object
+const person = new Person({
+    name:"dinuka",
+    age:22,
+    address: "Lion house"
+});
