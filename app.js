@@ -9,4 +9,4 @@ const personSchema = new mongoose.Schema({
 });
 
 //create model
-
+const person = mongoose.model("Person",personSchema);
