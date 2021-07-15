@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/personDB",{useNewUrlParser:true});
+mongoose.connect("mongodb://localhost:27017/personDB",{useNewUrlParser:true ,useUnifiedTopology: true});
 
 //create the schema
 const personSchema = new mongoose.Schema({
