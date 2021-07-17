@@ -6,7 +6,8 @@ mongoose.connect("mongodb://localhost:27017/studentDB",{useNewUrlParser:true ,us
 const studentSchema = new mongoose.Schema({
     name:{
         type: String,
-        maxLength:10
+        maxLength:10,
+        required:[true,"name is not specified!"]
     },
 
     age:{
@@ -22,9 +23,13 @@ const Student = new mongoose.model("student",studentSchema);
 //create a student object
 
 const student = new Student({
-    name:"dinuka",
+    name:"dilshan",
     age:20
 });
 
-
-student.save();
+//close the connection if saved successfully
+student.save((error,result)=>{
+    if(result){
+        mongoose.connection.close();
+    }
+});
