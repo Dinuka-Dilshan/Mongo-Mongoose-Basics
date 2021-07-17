@@ -42,3 +42,12 @@ Student.updateOne({ name:"dilshan"},{name:"kamal"},(error,result)=>{
         console.log("Successfull!");
     };
 });
+
+Student.deleteOne({name:"kamal"},(error,result)=>{
+    if(error){
+        console.log(error)
+    }else{
+        mongoose.connection.close();
+        console.log("deleted!");
+    }
+});
