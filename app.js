@@ -18,3 +18,13 @@ const studentSchema = new mongoose.Schema({
 
 //create the model
 const Student = new mongoose.model("student",studentSchema);
+
+//create a student object
+
+const student = new Student({
+    name:"dinuka",
+    age:20
+});
+
+
+student.save();
