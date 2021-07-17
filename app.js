@@ -33,3 +33,12 @@ student.save((error,result)=>{
         mongoose.connection.close();
     }
 });
+
+//update details
+Student.updateOne({ name:"dilshan"},{name:"kamal"},(error,result)=>{
+    if(error){
+        console.log(error);
+    }else{
+        console.log("Successfull!");
+    };
+});
