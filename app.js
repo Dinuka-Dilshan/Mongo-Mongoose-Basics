@@ -23,6 +23,26 @@ const Student = new mongoose.model("Student",studentSchema);
 //------------------------------------------------------------------------------------
 
 
+//create a schema
+
+const fruitSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required :[true,"name is not specified!"]
+    },
+
+    rating: {
+        type: String,
+        max:10,
+        min:0
+    }
+});
+
+
+//create a model
+
+const Fruit = new mongoose.model("Fruit",fruitSchema);
+
 
 
 
